@@ -12,7 +12,40 @@ Otherwise, you can clone the `biogl` repo and source it locally (to run from any
 
 ### Usage info
 
-# __fasta_seq__
+```
+usage: faseq [-h] [-f INFO_FILE] [--flank FLANK] [-s SEPARATOR] [-u] [-e]
+             [--full_header] [-t integer]
+             FASTA_file [header strand start stop [label]
+             [header strand start stop [label] ...]]
+
+Retrieves sequences from a FASTA file using the following format: header
+strand start stop [label]. If {label} is provided, will output in FASTA format
+using {label} as header. Otherwise, outputs one sequence per line. If only
+{header} is provided, will return the entire header/sequence pair.
+
+positional arguments:
+  FASTA_file            FASTA-formatted text file
+  header strand start stop [label]
+                        header strand start stop [label]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f INFO_FILE, --info_file INFO_FILE
+                        file with information for sequences on separate lines.
+  --flank FLANK         size of any desired flanking region around specified
+                        sequence(s)
+  -s SEPARATOR, --separator SEPARATOR
+                        Character to use to separate flanking sequence (if
+                        any) from main sequence, which defaults to {tab}.
+  -u, --unformatted     leave original file formatting intact (e.g. don't join
+                        multi-line entries into a single line)
+  -e, --exclude_header  exclude the header line from the output (does not
+                        apply to explicitly labeled queries)
+  --full_header         match on full header string (including whitespace)
+  -t integer, --truncate integer
+                        truncate sequence to the nearest even integer <=
+                        {integer} (equally from both ends)
+```
 
 ## __[tl;dr]__
 
